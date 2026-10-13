@@ -1,0 +1,87 @@
+{
+  "Metadata": {
+    "title": "StudyFlow AI",
+    "description": "AI で学習ノートとフラッシュカードを作る学習ワークスペース。"
+  },
+  "Navbar": {
+    "mainNavigation": "メインナビゲーション",
+    "home": "ホーム",
+    "features": "機能",
+    "pricing": "料金",
+    "faq": "よくある質問",
+    "spaces": "学習スペース",
+    "login": "ログイン",
+    "signup": "新規登録"
+  },
+  "LanguageSwitcher": {
+    "label": "言語",
+    "title": "言語を選択",
+    "close": "言語メニューを閉じる",
+    "search": "言語を検索",
+    "selected": "現在の言語",
+    "noResults": "一致する言語がありません"
+  },
+  "Hero": {
+    "eyebrow": "学びのための場所",
+    "subtitle": "AI を活用した学習ワークスペース",
+    "description": "学習資料をひとつにまとめ、わかりやすいノートと役立つフラッシュカードに変えていきましょう。",
+    "getStarted": "はじめる",
+    "viewSpaces": "学習スペースを見る",
+    "workspace": "ワークスペース",
+    "comingSoon": "近日公開",
+    "materialsTitle": "学習資料",
+    "materialsDescription": "科目ごとに資料を整理できます。",
+    "notesTitle": "ノートとフラッシュカード",
+    "notesDescription": "大切なポイントを繰り返し復習できます。"
+  },
+  "Features": {
+    "eyebrow": "機能",
+    "title": "もっとわかりやすい学習へ",
+    "description": "StudyFlow は、科目を整理し、資料を理解し、重要な内容を復習するために設計されています。",
+    "spacesTitle": "学習スペース",
+    "spacesDescription": "科目ごとに資料や学習ツールをまとめられます。",
+    "notesTitle": "AI 学習ノート",
+    "notesDescription": "複雑な内容を、見返しやすい構造化されたノートにまとめます。",
+    "flashcardsTitle": "フラッシュカード",
+    "flashcardsDescription": "短い問題と答えで重要なポイントを練習できます。"
+  },
+  "Pricing": {
+    "eyebrow": "料金",
+    "title": "まずは基本から",
+    "description": "StudyFlow は現在開発中です。有料機能の公開前にプランと料金をお知らせします。",
+    "previewTitle": "先行プレビュー",
+    "previewDescription": "現在はプレビューページをご覧いただけます。登録と決済はまだご利用いただけません。",
+    "button": "プレビューを見る"
+  },
+  "FAQ": {
+    "eyebrow": "よくある質問",
+    "title": "よくある質問",
+    "oneQuestion": "StudyFlow AI とは何ですか？",
+    "oneAnswer": "StudyFlow AI は、学習資料の整理とノートやフラッシュカードの作成を支援するために開発中の学習ワークスペースです。",
+    "twoQuestion": "今すぐ PDF をアップロードできますか？",
+    "twoAnswer": "PDF のアップロードと AI による生成は MVP で対応予定ですが、現在のフロントエンドプレビューでは利用できません。",
+    "threeQuestion": "有料プランはありますか？",
+    "threeAnswer": "料金はまだ発表していません。このプレビューで決済は発生しません。"
+  },
+  "Auth": {
+    "loginTitle": "おかえりなさい",
+    "signupTitle": "アカウントを作成",
+    "loginDescription": "ログインして学習スペースに戻りましょう。",
+    "signupDescription": "ここから学習ワークスペースを始めましょう。",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "loginButton": "ログイン",
+    "signupButton": "新規登録",
+    "createAccount": "アカウントを作成",
+    "notAvailable": "ログインと登録は次の開発段階で利用できるようになります。",
+    "hasAccount": "すでにアカウントをお持ちですか？",
+    "newToStudyFlow": "StudyFlow は初めてですか？"
+  },
+  "Spaces": {
+    "eyebrow": "ワークスペース",
+    "title": "学習スペース",
+    "description": "科目と学習資料はここにまとまります。",
+    "emptyTitle": "学習スペースはまだありません",
+    "emptyDescription": "学習スペースの作成は、ログイン機能とともに次の段階で追加されます。"
+  }
+}

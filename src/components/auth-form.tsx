@@ -1,26 +1,26 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 type AuthFormProps = {
   mode: "login" | "signup";
 };
 
 export function AuthForm({ mode }: AuthFormProps) {
+  const t = useTranslations("Auth");
   const isSignup = mode === "signup";
 
   return (
     <div className="mx-auto max-w-md rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
       <h1 className="text-3xl font-semibold tracking-tight text-slate-950">
-        {isSignup ? "Create your account" : "Welcome back"}
+        {isSignup ? t("signupTitle") : t("loginTitle")}
       </h1>
       <p className="mt-3 text-sm leading-6 text-slate-600">
-        {isSignup
-          ? "Your learning workspace starts here."
-          : "Log in to return to your learning spaces."}
+        {isSignup ? t("signupDescription") : t("loginDescription")}
       </p>
       <form className="mt-8 space-y-5">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-slate-800">
-            Email
+            {t("email")}
           </label>
           <input
             id="email"
@@ -32,7 +32,7 @@ export function AuthForm({ mode }: AuthFormProps) {
         </div>
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-slate-800">
-            Password
+            {t("password")}
           </label>
           <input
             id="password"
@@ -47,19 +47,19 @@ export function AuthForm({ mode }: AuthFormProps) {
           disabled
           className="w-full cursor-not-allowed rounded-xl bg-blue-300 px-5 py-3 text-sm font-semibold text-white"
         >
-          {isSignup ? "Create account" : "Log in"}
+          {isSignup ? t("createAccount") : t("loginButton")}
         </button>
       </form>
       <p className="mt-4 text-sm text-slate-600">
-        Authentication will be available in the next development phase.
+        {t("notAvailable")}
       </p>
       <p className="mt-6 text-sm text-slate-600">
-        {isSignup ? "Already have an account? " : "New to StudyFlow? "}
+        {isSignup ? t("hasAccount") : t("newToStudyFlow")}{" "}
         <Link
           href={isSignup ? "/login" : "/signup"}
           className="font-semibold text-blue-700 hover:underline"
         >
-          {isSignup ? "Log in" : "Sign up"}
+          {isSignup ? t("loginButton") : t("signupButton")}
         </Link>
       </p>
     </div>

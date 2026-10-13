@@ -1,0 +1,87 @@
+{
+  "Metadata": {
+    "title": "StudyFlow AI",
+    "description": "An AI-powered learning workspace for notes and flashcards."
+  },
+  "Navbar": {
+    "mainNavigation": "Main navigation",
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "spaces": "Spaces",
+    "login": "Log in",
+    "signup": "Sign up"
+  },
+  "LanguageSwitcher": {
+    "label": "Language",
+    "title": "Select a language",
+    "close": "Close language menu",
+    "search": "Search languages",
+    "selected": "Current language",
+    "noResults": "No matching languages"
+  },
+  "Hero": {
+    "eyebrow": "Your place to learn",
+    "subtitle": "AI-powered learning workspace",
+    "description": "Bring your study materials together and turn them into clearer notes and useful flashcards as StudyFlow grows.",
+    "getStarted": "Get started",
+    "viewSpaces": "View learning spaces",
+    "workspace": "Workspace",
+    "comingSoon": "Coming soon",
+    "materialsTitle": "Study materials",
+    "materialsDescription": "Keep each subject in one space.",
+    "notesTitle": "Notes and flashcards",
+    "notesDescription": "Review the ideas that matter."
+  },
+  "Features": {
+    "eyebrow": "Features",
+    "title": "A clearer way to study",
+    "description": "StudyFlow is being built around a simple flow: organize a subject, understand its material, and review what matters.",
+    "spacesTitle": "Learning spaces",
+    "spacesDescription": "Give every subject its own place for materials and future study tools.",
+    "notesTitle": "AI study notes",
+    "notesDescription": "Turn dense reading into structured summaries you can revisit.",
+    "flashcardsTitle": "Flashcards",
+    "flashcardsDescription": "Practice key ideas with short question-and-answer cards."
+  },
+  "Pricing": {
+    "eyebrow": "Pricing",
+    "title": "Start with the essentials",
+    "description": "StudyFlow is in development. Plans and pricing will be announced before paid features become available.",
+    "previewTitle": "Early access",
+    "previewDescription": "Explore the preview pages while we build the first learning tools. Registration and payments are not available yet.",
+    "button": "View the preview"
+  },
+  "FAQ": {
+    "eyebrow": "FAQ",
+    "title": "Questions, answered",
+    "oneQuestion": "What is StudyFlow AI?",
+    "oneAnswer": "StudyFlow AI is a learning workspace being built to help students organize materials and create notes and flashcards.",
+    "twoQuestion": "Can I upload a PDF now?",
+    "twoAnswer": "PDF upload and AI generation are planned for the MVP, but they are not available in this frontend preview.",
+    "threeQuestion": "Is there a paid plan?",
+    "threeAnswer": "Pricing has not been announced. This preview does not collect payments."
+  },
+  "Auth": {
+    "loginTitle": "Welcome back",
+    "signupTitle": "Create your account",
+    "loginDescription": "Log in to return to your learning spaces.",
+    "signupDescription": "Your learning workspace starts here.",
+    "email": "Email",
+    "password": "Password",
+    "loginButton": "Log in",
+    "signupButton": "Sign up",
+    "createAccount": "Create account",
+    "notAvailable": "Authentication will be available in the next development phase.",
+    "hasAccount": "Already have an account?",
+    "newToStudyFlow": "New to StudyFlow?"
+  },
+  "Spaces": {
+    "eyebrow": "Workspace",
+    "title": "Learning spaces",
+    "description": "Your subjects and study materials will live here.",
+    "emptyTitle": "No spaces yet",
+    "emptyDescription": "Space creation will be added with authentication in the next phase."
+  }
+}

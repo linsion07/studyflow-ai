@@ -1,0 +1,87 @@
+{
+  "Metadata": {
+    "title": "StudyFlow AI",
+    "description": "用 AI 整理学习笔记和记忆卡片的学习空间。"
+  },
+  "Navbar": {
+    "mainNavigation": "主导航",
+    "home": "首页",
+    "features": "功能",
+    "pricing": "价格",
+    "faq": "常见问题",
+    "spaces": "学习空间",
+    "login": "登录",
+    "signup": "注册"
+  },
+  "LanguageSwitcher": {
+    "label": "语言",
+    "title": "选择语言",
+    "close": "关闭语言菜单",
+    "search": "搜索语言",
+    "selected": "当前语言",
+    "noResults": "没有匹配的语言"
+  },
+  "Hero": {
+    "eyebrow": "专注学习的地方",
+    "subtitle": "AI 驱动的学习空间",
+    "description": "把学习资料集中整理，逐步转化为更清晰的笔记和实用的记忆卡片。",
+    "getStarted": "开始使用",
+    "viewSpaces": "查看学习空间",
+    "workspace": "学习空间",
+    "comingSoon": "即将推出",
+    "materialsTitle": "学习资料",
+    "materialsDescription": "每门学科都有自己的空间。",
+    "notesTitle": "笔记与记忆卡片",
+    "notesDescription": "反复巩固重要知识点。"
+  },
+  "Features": {
+    "eyebrow": "功能",
+    "title": "让学习更清晰",
+    "description": "StudyFlow 围绕简单的学习流程构建：整理学科、理解资料、复习重点。",
+    "spacesTitle": "学习空间",
+    "spacesDescription": "为每门学科集中管理资料和后续学习工具。",
+    "notesTitle": "AI 学习笔记",
+    "notesDescription": "把复杂内容整理成方便回顾的结构化笔记。",
+    "flashcardsTitle": "记忆卡片",
+    "flashcardsDescription": "通过简短的问答卡片练习核心知识点。"
+  },
+  "Pricing": {
+    "eyebrow": "价格",
+    "title": "从核心功能开始",
+    "description": "StudyFlow 正在开发中。付费功能上线前，我们会公布套餐和价格。",
+    "previewTitle": "抢先预览",
+    "previewDescription": "目前可以浏览预览页面。注册和支付功能尚未开放。",
+    "button": "查看预览"
+  },
+  "FAQ": {
+    "eyebrow": "常见问题",
+    "title": "你可能想了解",
+    "oneQuestion": "StudyFlow AI 是什么？",
+    "oneAnswer": "StudyFlow AI 是正在开发的学习空间，旨在帮助学生整理资料，并生成笔记和记忆卡片。",
+    "twoQuestion": "现在可以上传 PDF 吗？",
+    "twoAnswer": "PDF 上传和 AI 生成已列入 MVP 计划，但当前前端预览版暂未开放。",
+    "threeQuestion": "有付费套餐吗？",
+    "threeAnswer": "价格尚未公布，当前预览版不会收取费用。"
+  },
+  "Auth": {
+    "loginTitle": "欢迎回来",
+    "signupTitle": "创建账户",
+    "loginDescription": "登录后返回你的学习空间。",
+    "signupDescription": "从这里开启你的学习空间。",
+    "email": "邮箱",
+    "password": "密码",
+    "loginButton": "登录",
+    "signupButton": "注册",
+    "createAccount": "创建账户",
+    "notAvailable": "登录与注册功能将在下一开发阶段开放。",
+    "hasAccount": "已有账户？",
+    "newToStudyFlow": "第一次使用 StudyFlow？"
+  },
+  "Spaces": {
+    "eyebrow": "学习空间",
+    "title": "学习空间",
+    "description": "你的学科和学习资料将集中在这里。",
+    "emptyTitle": "暂无学习空间",
+    "emptyDescription": "创建学习空间功能将在登录与注册功能完成后加入。"
+  }
+}

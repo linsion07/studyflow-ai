@@ -1,8 +1,9 @@
 import type { NavigationItem } from "@/types/navigation";
 
 export const primaryNavigation: readonly NavigationItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/spaces", label: "Spaces" },
-  { href: "/login", label: "Log in" },
-  { href: "/signup", label: "Sign up" },
+  { href: "/", labelKey: "home" },
+  { href: "/#features", labelKey: "features" },
+  { href: "/#pricing", labelKey: "pricing" },
+  { href: "/#faq", labelKey: "faq" },
+  { href: "/spaces", labelKey: "spaces" },
 ];
