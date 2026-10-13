@@ -4,9 +4,29 @@
   "private": true,
   "description": "AI-powered learning platform for study notes and flashcards",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.9.0"
   },
   "scripts": {
-    "check:manifest": "node -e \"JSON.parse(require('node:fs').readFileSync('package.json', 'utf8')); console.log('package.json valid')\""
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^10.12.0",
+    "eslint-config-next": "16.4.0",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.0.0"
   }
 }
