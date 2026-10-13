@@ -1,4 +1,4 @@
 export type NavigationItem = {
-  href: "/" | "/spaces" | "/login" | "/signup";
-  label: string;
+  href: string;
+  labelKey: "home" | "features" | "pricing" | "faq" | "spaces";
 };
