@@ -1,0 +1,12 @@
+{
+  "name": "studyflow-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-powered learning platform for study notes and flashcards",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check:manifest": "node -e \"JSON.parse(require('node:fs').readFileSync('package.json', 'utf8')); console.log('package.json valid')\""
+  }
+}
