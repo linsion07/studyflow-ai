@@ -14,7 +14,12 @@
     "signup": "新規登録"
   },
   "LanguageSwitcher": {
-    "label": "言語"
+    "label": "言語",
+    "title": "言語を選択",
+    "close": "言語メニューを閉じる",
+    "search": "言語を検索",
+    "selected": "現在の言語",
+    "noResults": "一致する言語がありません"
   },
   "Hero": {
     "eyebrow": "学びのための場所",

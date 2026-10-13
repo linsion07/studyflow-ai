@@ -14,7 +14,12 @@
     "signup": "注册"
   },
   "LanguageSwitcher": {
-    "label": "语言"
+    "label": "语言",
+    "title": "选择语言",
+    "close": "关闭语言菜单",
+    "search": "搜索语言",
+    "selected": "当前语言",
+    "noResults": "没有匹配的语言"
   },
   "Hero": {
     "eyebrow": "专注学习的地方",

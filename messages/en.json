@@ -14,7 +14,12 @@
     "signup": "Sign up"
   },
   "LanguageSwitcher": {
-    "label": "Language"
+    "label": "Language",
+    "title": "Select a language",
+    "close": "Close language menu",
+    "search": "Search languages",
+    "selected": "Current language",
+    "noResults": "No matching languages"
   },
   "Hero": {
     "eyebrow": "Your place to learn",
