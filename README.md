@@ -14,7 +14,7 @@ The MVP uses one application and one AI provider. Additional services will be in
 
 ## Development environment
 
-1. Install Node.js 20.9 or newer and npm.
+1. Install a supported Node.js release (20.19+, 22.13+, or 24+) and npm.
 2. Run `npm ci`.
 3. Run `npm run dev` and open `http://localhost:3000`.
 
