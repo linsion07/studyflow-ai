@@ -8,12 +8,15 @@
   },
   "scripts": {
     "dev": "next dev",
+    "dev:windows-proxy": "pwsh -NoProfile -File ./scripts/dev-with-system-proxy.ps1",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.3",
     "next": "16.4.0",
     "next-intl": "^4.14.9",
     "react": "19.3.0",

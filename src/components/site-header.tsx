@@ -1,10 +1,16 @@
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
+import { signOut } from "@/app/[locale]/auth/actions";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Link } from "@/i18n/navigation";
 import { primaryNavigation } from "@/lib/navigation";
+import { getCurrentUser } from "@/lib/supabase/user";
 
-export function SiteHeader() {
-  const t = useTranslations("Navbar");
+export async function SiteHeader() {
+  const [t, locale, user] = await Promise.all([
+    getTranslations("Navbar"),
+    getLocale(),
+    getCurrentUser(),
+  ]);
 
   return (
     <header className="border-b border-slate-200 bg-white/90">
@@ -25,12 +31,28 @@ export function SiteHeader() {
             ))}
           </nav>
           <div className="flex items-center gap-3 border-l border-slate-200 pl-4 text-sm sm:pl-6">
-            <Link href="/login" className="font-medium text-slate-700 hover:text-blue-700">
-              {t("login")}
-            </Link>
-            <Link href="/signup" className="rounded-lg bg-slate-900 px-3 py-2 font-semibold text-white transition hover:bg-slate-700">
-              {t("signup")}
-            </Link>
+            {user ? (
+              <>
+                <span className="max-w-40 truncate text-slate-600" title={user.email ?? undefined}>
+                  {user.email ?? t("account")}
+                </span>
+                <form action={signOut}>
+                  <input type="hidden" name="locale" value={locale} />
+                  <button type="submit" className="font-medium text-slate-700 hover:text-blue-700">
+                    {t("logout")}
+                  </button>
+                </form>
+              </>
+            ) : (
+              <>
+                <Link href="/login" className="font-medium text-slate-700 hover:text-blue-700">
+                  {t("login")}
+                </Link>
+                <Link href="/signup" className="rounded-lg bg-slate-900 px-3 py-2 font-semibold text-white transition hover:bg-slate-700">
+                  {t("signup")}
+                </Link>
+              </>
+            )}
             <LanguageSwitcher />
           </div>
         </div>

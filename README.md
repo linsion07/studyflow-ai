@@ -2,9 +2,9 @@
 
 **Turn study materials into a more focused learning workflow.**
 
-StudyFlow AI is an AI-powered learning platform for organizing course materials and, in the planned MVP, turning text-based PDFs into study notes and flashcards. The project is being built as a small, maintainable SaaS product for a global audience.
+StudyFlow AI is an AI-powered learning platform for organizing course materials and turning text-based PDFs into study notes. The project is being built as a small, maintainable SaaS product for a global audience.
 
-> **Current status:** frontend preview. The landing page and language switching work; authentication, file upload, PDF processing, AI generation and database storage are not connected yet.
+> **Current status:** email/password authentication and private learning spaces are implemented. The PDF upload and notes UI connect to a separately hosted private analysis service. Its algorithm code is intentionally excluded from this repository.
 
 ## What the MVP will do
 
@@ -22,10 +22,11 @@ The intended flow is **learning space → PDF → extracted text → notes and f
 | --- | --- | --- |
 | Landing page | Preview available | Hero, features, pricing information and FAQ |
 | Internationalization | Available | English, Simplified Chinese and Japanese routes; language picker |
-| Login and signup | UI preview | Forms are visible, but submission is disabled |
-| Learning spaces | UI preview | Empty state; creating a space is not available yet |
-| PDF upload and parsing | Planned | No upload endpoint or storage integration yet |
-| AI notes and flashcards | Planned | No AI endpoint or model calls yet |
+| Login and signup | Implemented | Email/password auth with optional email confirmation; requires Supabase configuration |
+| Learning spaces | Implemented | Signed-in users can create, list, and open their own spaces |
+| PDF upload and parsing | Integration ready | Private Supabase Storage and an external studyflow-core API; service is not included |
+| Study notes | Integration ready | Structured notes are saved only after a successful response from the private AI service |
+| Flashcards | Basic preview | Generated question-and-answer cards appear beneath the notes; the space-level study page is still a placeholder |
 
 The pricing section describes the preview only. It does not offer a paid plan or collect payment information.
 
@@ -36,22 +37,32 @@ The pricing section describes the preview only. It does not offer a paid plan or
 | Web application | Next.js App Router, React and TypeScript | In use |
 | Styling | Tailwind CSS | In use |
 | Languages | `next-intl` with locale-prefixed routes | In use |
-| Authentication | Supabase Auth | Planned for MVP |
-| Database and private files | Supabase PostgreSQL and Storage | Planned for MVP |
-| AI generation | OpenAI as the first provider | Planned for MVP |
+| Authentication | Supabase Auth with `@supabase/ssr` | In use |
+| Database and private files | Supabase PostgreSQL and private Storage | In use |
+| PDF analysis | Private `studyflow-core` HTTP service | Connect separately |
+| Model generation | Configured by the private analysis service | Provider key required in that service |
 
-The MVP keeps the web app and its future server endpoints in one Next.js project. Additional services and model providers can be considered after real usage shows a need for them.
+The browser talks only to Next.js; Next.js checks the user and calls a private analysis API. The API contract is in [`docs/ai-engine-contract.md`](docs/ai-engine-contract.md). The engine implementation, sample files, and provider keys are not published here.
 
 ## Run locally
 
-**Requirements:** Node.js 20.19+, 22.13+, or 24+ and npm. The supported versions are also declared in [`package.json`](package.json).
+**Requirements:** Node.js 20.19+, 22.13+, or 24+, and npm. The supported Node versions are also declared in [`package.json`](package.json).
 
 ```bash
 npm ci
+```
+
+Copy `.env.example` to `.env.local` and fill in the Supabase URL and publishable key. For PDF analysis, configure `STUDYFLOW_CORE_API_URL` and a shared `STUDYFLOW_CORE_API_TOKEN` for your separate private engine. The engine must have its own model provider key; the web app rejects rule-based fallback rather than presenting it as AI notes. Apply the Supabase migrations in filename order as described in [`supabase/README.md`](supabase/README.md).
+
+Start the web app:
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The root URL redirects to `/en`. The current frontend preview runs without API keys or a Supabase project.
+Open [http://localhost:3000](http://localhost:3000). The root URL redirects to `/en`. The public pages run without a Supabase project; private spaces require Supabase configuration, and PDF analysis also requires the separate engine.
+
+On Windows, if the system uses a local proxy to reach Supabase, start with `npm run dev:windows-proxy` instead. This reads the Windows proxy settings and enables Node's HTTPS proxy support for the development server. It requires Node.js 22.21+ or 24+; regular `npm run dev` remains the default elsewhere.
 
 For a production build and local production server:
 
@@ -78,9 +89,11 @@ Run lint, typecheck and build before opening a pull request. Tailwind CSS is con
 | --- | --- |
 | `/` | Redirects to English at `/en` |
 | `/en`, `/zh`, `/ja` | Localized landing page |
-| `/{locale}/login` | Login preview |
-| `/{locale}/signup` | Signup preview |
-| `/{locale}/spaces` | Learning spaces preview |
+| `/{locale}/login` | Email/password login |
+| `/{locale}/signup` | Email/password registration |
+| `/{locale}/spaces` | Private learning-space list and creation |
+| `/{locale}/spaces/{id}` | Upload PDF and list documents |
+| `/{locale}/spaces/{id}/notes/{documentId}` | Structured study notes |
 
 The navigation language picker switches between English, 中文 and 日本語 while keeping the current page. One shared set of page components serves all three languages; translations live in [`messages/`](messages/). Routing, navigation and message loading live in [`src/i18n/`](src/i18n/). English is the default for `/`; automatic language detection is currently disabled.
 
@@ -100,27 +113,28 @@ studyflow-ai/
 │   ├── i18n/                 # Routing, navigation and message loading
 │   ├── lib/                  # Shared configuration and helpers
 │   ├── types/                # Shared TypeScript types
-│   └── proxy.ts              # Locale routing proxy
+│   └── proxy.ts              # Locale routing and session refresh
 ├── docs/                     # Architecture and development notes
-├── supabase/                 # Reserved for database migrations and config
-├── .env.example              # Variables for future integrations
+├── docs/ai-engine-contract.md # Contract for the separately hosted private engine
+├── supabase/                 # Database and Storage migrations
+├── .env.example              # Local configuration template
 └── package.json
 ```
 
 ## MVP development order
 
-1. **Accounts and data boundaries:** connect Supabase Auth, create user profiles and protect private data.
+1. **Accounts and data boundaries:** Supabase Auth and private route protection are implemented; define per-user data policies when tables are added.
 2. **Learning spaces:** create, list and open spaces owned by the signed-in user.
 3. **Documents:** upload PDFs to private storage and track processing status.
 4. **Text extraction:** parse text-based PDFs and report unsupported or scanned files clearly.
 5. **AI study tools:** generate notes and flashcards from extracted content.
 6. **Validation:** collect feedback, measure reliability and AI cost, then refine the workflow.
 
-The repository currently implements only the frontend foundation. The order above is a plan, not a claim that these services are available.
+The repository implements the client and server integration for study notes and a basic flashcard preview. The private engine must be deployed separately before those steps work. A dedicated flashcard study flow and later steps remain on the roadmap.
 
 ## Environment and security
 
-The current preview needs no environment variables. [`.env.example`](.env.example) lists the Supabase and OpenAI values expected by later phases; copy it to `.env.local` only when those integrations are implemented. Never commit `.env.local`, API keys, uploaded study materials or generated build files. Keep development and production Supabase projects separate.
+Copy [`.env.example`](.env.example) to `.env.local` and set the Supabase and studyflow-core values above. The public pages remain available without them. See [`supabase/README.md`](supabase/README.md) for Auth and Storage setup. Never commit `.env.local`, API keys, uploaded study materials or generated build files. Keep development and production Supabase projects separate.
 
 ## Contributing
 
